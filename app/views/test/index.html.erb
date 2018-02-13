@@ -1,8 +1,12 @@
 <h1>Test#index</h1>
 <p>Find me in app/views/test/index.html.erb</p>
 <h1><% test =["25",52,"NOOB", "SUPER NOOB", "PUDGE SUPER FAT"] %></h1>
-<h2><% test.each do |t| %></h2>
-    <h2><%= t %></h2>
+<h2><% @user.each do |t| %></h2>
+    <h2><%= t.id %></h2>
+    <h2><%= t.first_name %></h2>
+    <h1><%= t.last_name %></h1>
+    <h2><%= t.phone %></h2>
+    <h2><%= t.email %></h2>
 <% end %>
 <h1><%= @a %></h1>
 

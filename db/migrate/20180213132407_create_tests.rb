@@ -8,6 +8,6 @@ class CreateTests < ActiveRecord::Migration[5.1]
   end
 
   def down
-    drop_table :test
+    drop_table :tests
   end
 end

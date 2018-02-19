@@ -22,5 +22,8 @@
   </table>
   <form>
 <h1><%= @a %></h1>
-
-
+    <p>Creating user</p>
+<%= link_to("create empty") %>
+    <% @ass.each do |t| %>
+    <%= t %>
+    <% end %>

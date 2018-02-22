@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
-  root 'test#index'
+  root 'users#index'
+
+  resources :users do
+    member do
+      get :delete
+    end
+  end
 
 
 

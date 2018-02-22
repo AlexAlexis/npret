@@ -1,0 +1,11 @@
+<%= form_for @user, remote: true do |f| %>
+  <p>First name</p>
+  <%= f.text_field(:first_name) %>
+  <p>Last name</p>
+  <%= f.text_field(:last_name) %>
+  <p>Phone</p>
+  <%= f.text_field(:phone) %>
+  <p>Email</p>
+  <%= f.text_field(:email) %>
+  <%= submit_tag("Enter") %>
+<% end %>

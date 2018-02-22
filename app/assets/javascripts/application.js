@@ -11,8 +11,22 @@
 // about supported directives.
 //
 //= require rails-ujs
-//= require jquery3
+//= require jquery
 //= require popper
+//= require jquery_ujs
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function () {
+    $('.destroy').on('click', function() {
+        $.ajax({
+        url: '/users/' + this.parentElement.id,
+        type: 'DELETE',
+        success: function(r){
+
+        }
+        });
+    });
+
+});

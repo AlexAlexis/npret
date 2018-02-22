@@ -1,0 +1,14 @@
+<%= link_to("Back to list", root_path, class: 'btn btn-primary active') %>
+<%= form_for(@user) do |f| %>
+  <p>First name</p>
+  <%= f.text_field(:first_name) %>
+  <p>Last name</p>
+  <%= f.text_field(:last_name) %>
+  <p>Phone</p>
+  <%= f.text_field(:phone) %>
+  <p>Email</p>
+  <%= f.text_field(:email) %>
+  <%= submit_tag("Enter", class: 'btn btn-primary btn-warning' ) %>
+
+
+<% end %>

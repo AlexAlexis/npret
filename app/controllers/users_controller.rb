@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def index
     sleep 1
-    @user1 = User.all
+    @user = User.all
   end
 
   def show

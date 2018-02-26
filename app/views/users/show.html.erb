@@ -1,14 +1,4 @@
-<%= link_to("Back to list", root_path, class: 'btn btn-primary') %>
-<%= link_to("update user", edit_user_path, class: 'btn btn-primary btn-lg') %>
-<h1>User Name</h1><br>
-<p><%= @user.first_name %></p>
-<h1>User Last</h1><br>
-<p><%= @user.last_name %></p>
-<h1>User Name</h1><br>
-<p><%= @user.email %></p>
-<h1>User Name</h1><br>
-<p><%= @user.phone %></p>
-<%= link_to("update user", edit_user_path, class: 'btn btn-primary btn-lg') %>
+<%= render @user %>
 
 
 

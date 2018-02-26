@@ -9,7 +9,8 @@ class UsersController < ApplicationController
   end
 
   def new
-    @user = User.new({first_name: 'First_name'})
+    @user = User.new({first_name: 'Pudge', last_name: 'The hook master', phone: '+380970421578',
+                      email: 'Hooker@novaposhta.ua'})
   end
 
   def create
@@ -32,17 +33,12 @@ class UsersController < ApplicationController
   def delete
     @user = User.find(params[:id])
     @user.destroy
-    redirect_to(users_path)
+    respond_to do |format|
+      format.html { redirect_to users_url }
+      format.js
+    end
 
   end
-
-  def destroy
-    @user = User.find(params[:id])
-    @user.destroy
-    redirect_to(users_path)
-  end
-
-
   private
   def user_params
   params.require(:user).permit(:first_name, :last_name, :phone, :email)

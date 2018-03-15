@@ -1,9 +1,28 @@
 
 <h1>User#index</h1>
 <p>Find me in app/views/user/index.html.erb</p>
-<script type="text/javascript">
 
-</script>
+
+<input type="button" id="c1" value="Start Slideshow">
+<input type="button" id="c2" value="Stop Slideshow">
+<br/>
+<br/>
+
+
+<%= image_tag('11.png', id: 'mainImg', height: '400', width: '440', border: '3px solid red' ) %>
+<br/>
+<div id="cont2">
+  <%= image_tag('1.jpg', class: 'imgStyle') %>
+  <%= image_tag('11.png', class: 'imgStyle') %>
+  <%= image_tag('12.jpg', class: 'imgStyle') %>
+  <%= image_tag('13.jpg', class: 'imgStyle') %>
+  <%= image_tag('14.jpg', class: 'imgStyle') %>
+</div>
+
+
+
+
+
 
 <%= link_to("Create User", new_user_path, class: 'btn btn-primary', id: 'new_link', remote: true) %>
 <%= link_to "somewhere", "#", id: "comments1" %>
@@ -11,42 +30,68 @@
 <input type="button" id="c2" value="Gassoline">
 <input type="button" id="c3" value="Cities">
 <input type="button" id="c4" value="Month">
-<h1>Auto  :</h1>
-<input type="checkbox" name="auto" value="BMW"/>BMW
-<input type="checkbox" name="auto" value="ZAZ">ZAZ
-<input type="checkbox" name="auto" value="AUDI">AUDI
-<input type="checkbox" name="auto" value="Mercedess">Mercedess
-<input type="checkbox" name="auto" value="MAN">MAN
-<input type="checkbox" name="auto" value="MAN">MAN
-<br /><br />
-<h2>Gassoline: </h2>
-<input type="checkbox" name="gas" value="Gassoline">GAS
-<input type="checkbox" name="gas" value="Benzin">Benzin
-<input type="checkbox" name="gas" value="Diesel">Diesel
-<br /><br />
-<h2>Cities: </h2>
-<input type="checkbox" name="cit" value="Kiev">Kiev
-<input type="checkbox" name="cit" value="Stockholm">Stockholm
-<input type="checkbox" name="cit" value="Dnepr">Dnepr
-<input type="checkbox" name="cit" value="Zaporizhzhia">Zaporizhzhia
-<input type="checkbox" name="cit" value="Odes">Odessa
-<input type="checkbox" name="cit" value="Toron">Toronto
-<br /><br />
-<h2>Month: </h2>
-<input type="checkbox" name="mon" value="Jan">January
-<input type="checkbox" name="mon" value="Feb">February
-<input type="checkbox" name="mon" value="Mar">March
-<input type="checkbox" name="mon" value="Apr">April
-<input type="checkbox" name="mon" value="May">May
-<input type="checkbox" name="mon" value="Jun">June
-<br /><br />
-<div id="divauto"></div>
-<div id="divgas"></div>
-<div id="divcit"></div>
-<div id="divmon"></div>
-<div id="resPrice"></div>
-<h1 id="hw">Hello World</h1>
-<h2 style="color: #408001">Bellow</h2>
+
+<table>
+<tr>
+  <td>First name:</td>
+  <td>
+    <input id="firstText" type="text" class="inputReq" />
+  </td>
+  <td> <%= image_tag('11.png', size: '20x20', id: 'imgFirst', class: 'imag') %></td>
+  <td> <div id="divFirst" style="display: none">First name in passports</div></td>
+</tr>
+  <tr>
+    <td>Last name:</td>
+    <td>
+      <input id="secondText" type="text" class="inputReq" />
+    <td> <%= image_tag('11.png', size: '20x20', id: 'imgLast', class: 'imag') %></td>
+    <td> <div id="divLast" style="display: none">Last name in passports</div></td>
+    </td>
+  </tr>
+  <tr>
+    <td>City</td>
+    <td> <%= image_tag('11.png', size: '20x20', id: 'imgText', class: 'imag') %></td>
+    <td><div id="divText" style="display: none">your text goo</div></td>
+    <td>
+      <select id="ddCelect" class="inputReq">
+        <option value="select">select</option>
+        <option value="Toronto">Toronto</option>
+        <option value="NewYourk">ew-your</option>
+        <option value="hello">Hello</option>
+        <option value="Kiev">Kiev</option>
+      </select>
+    </td>
+  </tr>
+  <tr>
+    <td>Text:</td>
+
+  </tr>
+</table>
+<ul id="ulList">
+  <li class="hello1">US</li>
+  <li>Canada</li>
+  <li>England</li>
+  <li>Ukraine</li>
+  <li>Germany</li>
+  <li>Poland</li>
+</ul>
+
+<h3 id="scrollev" style="display: none;">scroll event handled/</h3>
+<div id="divauto">
+  </div>
+<div id="resPrice" style="height: 200px; width: 200px; border: 1px solid black; overflow: scroll;">
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+fffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+fffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+fffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+fffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+fffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+fffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</div>
+
 
 
 <table class="table" id="tablet1">

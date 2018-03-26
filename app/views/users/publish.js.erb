@@ -1,0 +1,58 @@
+
+//alert('Hello noobs');
+
+
+$('#created1').text('<%= @user.created_at %>')
+$('#auto2').css({
+	'width' : 500,
+	'height' : 200,
+	'font-size' : 20,
+	'background-color' : 'azure'
+}).html('<table id="userTable"><tr  id="td<%= @user.id %>"><td>user Id:</td><td><%=@user.id %></td></tr>'
++
+'<tr id="email<%= @user.id %>"><td>User Email:</td><td><%=@user.email %></td></tr>'
++
+'<tr><td>User First Name:</td><td><%=@user.first_name %></td></tr>'
++
+'<tr><td>User Last Name:</td><td><%=@user.last_name %></td></tr>'
++
+'<tr><td>User phone number:</td><td><%=@user.last_name %></td></tr>'
++
+'</table>'
++
+'<input type="button" id="tableButton" value="Hide">');
+var userTd = "td" + <%= @user.id %>;
+var counter = 0;
+$('#'+ 'email' + <%= @user.id %> ).on({
+	'click' : function(){
+		if(counter == 0){
+ 	$(this).animate({
+ 		'width' : 500,
+ 		'height' : 100,
+ 		'font-size' : 25
+ 	},1500);
+ 	counter = 1; 	
+ 	} else{
+ 		counter = 0;
+ 		$(this).animate({
+ 		'width' : 100,
+ 		'height' : 20,
+ 		'font-size' : 16
+ 	},1500);
+ 	}
+	},
+	'mouseover' : function(){
+	$(this).css('color','red');	
+	},
+	'mouseout' : function(){
+	$(this).css('color','black');	
+	}
+});
+$('#tableButton').click(function(){
+	$('#auto2')
+	.animate({ 'font-size' : 0},{duration: 1500})
+	.animate({ 'width' : 0},{duration: 1500, queue: false})
+	.animate({ 'height' : 0},{duration: 1500, queue: false})	
+});
+
+

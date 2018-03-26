@@ -12,6 +12,11 @@ class UsersController < ApplicationController
     @user = User.new({first_name: 'Pudge', last_name: 'The hook master', phone: '+380970421578',
                       email: 'Hooker@novaposhta.ua'})
   end
+  def publish
+      sleep 2
+      @user = User.find(params[:id])
+      @user.update(created_at: Time.zone.now)
+    end
 
   def create
     @user = User.create(user_params)
@@ -22,7 +27,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+     @user = User.find(params[:id])
   end
 
   def update
@@ -37,6 +42,7 @@ class UsersController < ApplicationController
       format.html { redirect_to users_url }
       format.js
     end
+    
 
   end
   private

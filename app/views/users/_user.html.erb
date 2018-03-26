@@ -1,12 +1,14 @@
   <tr>
   <%= form_for user do |f| %>
-  <form id='<%= user.id %>'></form>
+  <tr id="<%= user.id %>">
   <td> <%= user.id %> </td>
   <td><%= link_to(user.first_name, user, class: 'link') %></td>
   <td><%= user.last_name %></td>
   <td><%= user.phone %></td>
   <td><%= user.email %></td>
+  <td><span id="created1"><%= user.created_at %></span></td>
     <td><%= link_to("Delete", delete_user_path(user), class: 'btn btn-danger') %> </td>
-    <td class='destroy'>Destroy</td>
+    <td><%= link_to 'Publish', publish_user_path(user), class: 'btn btn-primary', method: :patch, remote: true, data: {disable_with: "publishing..."} %></td>
+  </tr>
       </tr>
 <% end %>

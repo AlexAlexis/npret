@@ -6,9 +6,7 @@
   cursor: pointer;
 }
 .bigImg {
-	height: 500px;
-	width: 540px;
-	border: 2px solid grey;
+	position: absolute;
 }
 .imgStyle{
 	height: 100px;
@@ -17,4 +15,9 @@
 }
 .cont2 {
 	border: 1px
+}
+.divauto{
+	background-color: grey;	
+	text-align: center;
+	font-size: 16px;
 }

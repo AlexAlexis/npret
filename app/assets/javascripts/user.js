@@ -1,40 +1,281 @@
 $(document).ready(function () {
-       var imagesUrls = new Array();
-       var intervalId;
-       var btnStart = $('#c1');
-       var btnStop = $('#c2');
+   
 
-       $('#cont2 img').each(function(){
-        imagesUrls.push($(this).attr('src'));
-       });
 
-       function setImg(){
-
-        var mainImgElement = $('#mainImg');
-        var currentImageUrl = mainImgElement.attr('src');
-        var currentImageIndex = $.inArray(currentImageUrl,imagesUrls);
-        if(currentImageIndex == (imagesUrls.length - 1))
-        {
-            currentImageIndex = -1;
-        }
-        mainImgElement.attr('src', imagesUrls[currentImageIndex+1]);  
-       }
-
-       btnStart.click(function(){
-            intervalId = setInterval(setImg,1500);
-            $(this).attr('disabled','disabled');
-            btnStop.removeAttr('disabled');
-       })
-       btnStop.click(function(){
-            clearInterval(intervalId);
-            $(this).attr('disabled','disabled');
-            btnStart.removeAttr('disabled');
-            })
 
 });
 
 
 /*
+----54 jQuery  .load(url[,data][complete]) - AJAX(asynchronous JS and XML), allows parts of the page to be reload without reloading entire page
+    //W
+
+
+---53  jQuery floating div(keeps floating beside u as you scroll down)
+--jQuery
+var floatingDiv =  $('#divFloating');
+       var floatingDivPosition = floatingDiv.position();
+       $(window).scroll(function(){
+            var scrollBarPosition = $(window).scrollTop();
+            if(scrollBarPosition >= floatingDivPosition.top)
+            {
+                floatingDiv.css({
+                    'position' : 'fixed',
+                    'top' : 5
+                })
+            }
+            else
+            {
+                floatingDiv.css({
+                    'position' : 'relative',
+                    'top' : 0
+                })
+            }    
+
+       });
+--- HTML
+<table align="center" border="1" style="border-collapse: collapse;">
+  <tr>
+    <td style="width: 500px; vertical-align: top">
+      Main content
+    </td>
+    <td style="width: 150px; vertical-align: top">
+      Side Panel
+      <br/>
+      <br/>
+      <div id="divFloating" style="background-color: silver; height: 150px; width: 150px">
+        FLOATING DIV
+      </div>
+    </td>
+  </tr>
+</table>
+
+
+
+---52 Increase decrease font size using jquery
+------Can be used to every attribute in the Page
+$('#sizeIncrease').click(function(){
+                sizeManipulator('increase');
+            })
+            $('#sizeDecrease').click(function(){
+                sizeManipulator('decrease');
+            })
+            $('#sizeNormal').click(function(){
+                sizeManipulator('normal');
+            })
+
+
+    function sizeManipulator(flag){
+            var divElement = $('#divauto');
+            var currentSize = parseInt(divElement.css('font-size'));
+
+
+            if (flag == 'increase') {
+                currentSize += 3;
+            } else if (flag == 'decrease') {
+                currentSize -=3;
+            } else {
+                currentSize = 16;
+            };
+
+            divElement.css('font-size', currentSize);
+    }
+
+
+---51 jQuery show/hide password(toggle password)
+---Simple
+ $('#chkbox').click(function(){
+        $('#psfield').attr('type', $(this).is(':checked') ? 'text' : 'password');
+
+    })
+
+
+----50 Optimize jQuery prgoress bar
+----short version using step
+
+    $('#c1').click(function(){
+        animateProgressBar($('#ddSelectPercentage').val());
+   });
+
+    function animateProgressBar(currentPercentage)
+    {
+        $('#divauto2').animate({
+            'width' : ((500 * currentPercentage) / 100)
+        }, {
+            duration: 2000,
+            step : function(now, tween) {                // 'now' - the value animation is currently at
+                                                        // 'tween' - the value animation will end at
+                $('#divauto2').text(Math.ceil((now / 500) * 100) + ' %');
+            }
+        })
+    }
+
+--------long version
+var previousPercentage = 0;
+    var currentPercentage = 0;
+
+    function animateProgressBar(previousPercentage,currentPercentage)
+    {
+        $('#divauto2').animate({
+            'width' : ((500 * currentPercentage) / 100)
+        }, 3000);
+
+        if(previousPercentage > currentPercentage)             //when roll back it adds 1;
+            currentPercentage -= 1;
+
+        $({ counter: previousPercentage }).animate({
+            counter: currentPercentage
+        }, {
+            duration: 3000,
+            step : function(){
+                $('#divauto2').text(Math.ceil(this.counter) + ' %');
+            }
+            })
+    }
+    $('#c1').click(function(){
+        previousPercentage = currentPercentage;
+        currentPercentage = $('#ddSelectPercentage').val();
+        animateProgressBar(previousPercentage, currentPercentage);
+   });
+
+
+----49 jQuery simple progress bar
+function animateProgressBar(percentageCompleted)
+    {
+        $('#divauto2').animate({
+            'width' : ((500 * percentageCompleted) / 100)
+        }, 3000);
+
+        $({ counter: 1 }).animate({                       //JSON object that animates on itself
+            counter: percentageCompleted                   // bassed on percetages that we give
+        }, {
+            duration: 3000,
+            step : function(){                              // adds '%' into div
+                $('#divauto2').text(Math.ceil(this.counter) + ' %'); //Math.ceil - to integer
+            }
+            })
+    }
+    $('#c1').click(function(){
+        var percentages = $('#ddSelectPercentage').val();
+        animateProgressBar(percentages);
+    });
+
+
+HTML - two divs one in another
+.divauto{
+    background-color: grey;
+    height: 20px;
+    width: 500px;
+    padding: 5px;
+}
+.divaut2{
+    background-color: red;
+    height: 19px;   
+    width: 0px;
+    color: white;
+    text-align: center;
+}
+
+
+
+------48 jQuery animation Queue(queue function)------------
+---To use animations in parallel use queue: false
+    
+        $('#divauto')
+        .animate({ 'width' : 500}, {duration: 1500, queue: false})
+        .animate({ 'padding' : 20},{duration: 1500, queue: false})
+        .animate({ 'font-size' : 50},{duration: 1500, queue: false})
+        .animate({ 'border-width' : 10},{duration: 1500, queue: false})
+        .animate({ 'opacity' : 1},{duration: 1500, queue: false})
+
+---Queue(очередь анимации) length
+$('#c1').click(function(){
+        
+        $.fx.off = $('#chkbox').is(':checked'); // Turns off animation if checkbox is ':checked'
+
+        $('#divauto')
+        .animate({ 'width' : 500},1500)
+        .queue(function(){
+            console.log('Queue calls = ' + $(this).queue('fx').length); //allows to count how many animations WAITS to be executed
+                                                                        after 1 animation it'll stop. 'fx' is the name of default queue
+            $(this).dequeue(); // dequeue method allows to continue animation
+        })
+        .animate({ 'padding' : 20},1500)
+        .animate({ 'font-size' : 50},1500)
+        .animate({ 'border-width' : 10},1500)
+        .animate({ 'opacity' : 1},1500)
+        
+        $('#divauto2')
+        .animate({ 'width' : 500},1500)
+        .animate({ 'padding' : 20},1500)
+        .animate({ 'font-size' : 50},1500)
+        .animate({ 'border-width' : 10},1500)
+        .animate({ 'opacity' : 1},1500)    
+    });
+---Two elements are begin move together(became bigger/smaller/change color, etc. HM required)
+   > One method after another
+   $('#c1').click(function(){
+        $('#divauto')
+        .animate({ 'width' : 500},1500)
+        .animate({ 'padding' : 20},1500)
+        .animate({ 'font-size' : 50},1500)
+        .animate({ 'border-width' : 10},1500)
+        .animate({ 'opacity' : 1},1500)
+        
+        $('#divauto')
+        .animate({ 'width' : 500},1500)
+        .animate({ 'padding' : 20},1500)
+        .animate({ 'font-size' : 50},1500)
+        .animate({ 'border-width' : 10},1500)
+        .animate({ 'opacity' : 1},1500)    
+    }); 
+
+
+---47 Animate function----
+---moving cube
+$('#c1').click(function(){
+        $('#myImg').animate({
+            'left' : 500
+        }).animate({
+            'top' : 500
+        }).animate({
+            'left' : 150
+        }).animate({
+            'top' : 150
+        })
+    });
+---Image slowly increases when mouse is out and decreases when it's not in it
+$('#myImg').on({
+        mouseover : function(){
+            $(this).animate({
+                'height' : 440,
+                'width'  : 400
+            },1000, 'linear', animationComplete);
+        },
+        mouseout : function(){
+          $(this).animate({
+                'height' : 100,
+                'width'  : 100
+            },3000);  
+        }
+    })
+
+    function animationComplete(){
+        alert('Animation is complete.')
+    }
+
+
+
+syntax -> .animate({'font-size' : '50'},2000)
+---slowly gets bigger---
+$('#c1').click(function(){
+
+        $('#divauto').animate({
+            'font-size' : 50
+        },2000);
+
+       })
+
 --------46 Slideshow with thumbnails MOOOVING IMAGES---
 var imagesUrls = new Array();
        var intervalId;

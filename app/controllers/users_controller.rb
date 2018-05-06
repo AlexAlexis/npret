@@ -3,6 +3,7 @@ class UsersController < ApplicationController
     sleep 1
     @user = User.all
   end
+  
 
   def show
     @user = User.find(params[:id])
@@ -42,8 +43,6 @@ class UsersController < ApplicationController
       format.html { redirect_to users_url }
       format.js
     end
-    
-
   end
   private
   def user_params

@@ -1,12 +1,201 @@
+
+var aCounter = "255";
+var fuck = [10,20,20,50,50,22,27];
+var noob = fuck.length;
+
+
+
+/*
+
+
+--- Slice and split strings
+
+--- NaN - Not a Number
+
+---Numbers
+
+MATH FUNCTIONS
+    Math.            <- will appear list
+
+---Variable scopes(local vs global variables, same as C++)
+
+
+---Functions
+
+var aCounter = "Noober";
+
+function sayHello(thing){
+    alert("Hello, " + thing);
+}
+
+sayHello(aCounter);
+
+
+---breaking the loop
+for (i = 0; i < 15; i++){
+
+
+    if(i === 5 || i === 3){
+        continue;                  // scip out it
+    }
+    console.log(i);
+
+    if(i === 7){
+        break;
+    }
+
+
+}
+    document.write("I brake the loop...");
+
+
+----- count elem my tagName
+
+var divs = document.getElementsByTagName("div");
+
+for (i = 0; i < divs.length; i++){
+    console.log("this is link number:" + i);
+
+}
+    document.write("Over and over, and ober...");
+
+----For loop
+for (age = 5; age < 15; age++){
+    console.log("Your age is less than 10");
+
+}
+    document.write("Over and over, and ober...");
+
+
+
+----while loop
+
+var age = 5;
+
+while(age < 10){
+    console.log("Your age is less than 10");
+}
+    document.write("Over and over, and ober...");
+
+--
+var youLikeMeat = true;
+
+if(youLikeMeat){
+
+    document.write("Here's the meaty menu..");
+} else if {
+    alert('Noobs eat vegetables');
+};
+
+    Write to document and console:
+    Chrome <- inspect
+
+----
+    Basic math functions( same as c++)
+
+----
+    selecting elements.
+  document.getElementById('idnmae')       <--- select element in DOM
+
+-----------------------------------------------------------------------------------------
+/* JavaScript
+
+
+
+
 $(document).ready(function () {
-   
-
-
+    alert('Hi');
+    $('#divHeight').slider();
 
 });
 
 
 /*
+
+
+---79 jQuery multiple sliders, slide() fuction(width,height, opacity of image) ( HOME FIX)
+
+
+HTML--
+<div id="divHeight"></div><br/>
+<div id="divWidth"></div><br/>
+<div id="divOpacity"></div><br/>
+<div id="divDimensions"></div><br/>
+<%= image_tag('1.jpg', id: 'myImg', style: 'width: 100px; height: 100px') %>
+
+
+
+---71 Calling live web service using jQuery Ajax
+cite: http://openweathermap.org/current
+$('#buttonSearch').click(function(){
+        var requestData = $('#txtCity').val() + ',' + $('#txtContry').val();
+        var resultElement = $('#divauto');
+
+        $.ajax({
+            url: 'http://api.openweathermap.org/data/2.5/weather',
+            method: 'get',
+            data: { q: requestData },
+            dataType: 'json',
+            success: function(data) {
+                resultElement.html('Weather' + data.weather[0].main );
+            }
+        });
+    });
+    HTML file---
+    <table>
+  <tr>
+    <td>City:</td>
+    <td><input type="text" id="txtCity"></td>
+  </tr>
+  <tr>
+    <td>Country:</td>
+    <td><input type="text" id="txtContry"></td>
+  </tr>
+</table>
+<input type="button" value="Search Weather" id="buttonSearch">
+<br/><br/>
+<div id="divResult1"></div>
+
+
+---70 jQuery. Load data on page scroll using jQuery(HM)
+
+
+
+----69 jQuery. Difference between window height and document height
+  - $(window).height() - returns the hieght of the browser window(what you see)
+  - $(document).height() - returns height of HTML document(includes below and above visible areas)
+  - $(window).scrollTop() - returns the current vertical position of the scroll bar.
+    var floatingDivPosition = floatingDiv.position();
+       $(window).scroll(function(){
+            var scrollBarPosition = $(window).scrollTop();
+            if(scrollBarPosition >= floatingDivPosition.top)
+            {
+                floatingDiv.css({
+                    'position' : 'fixed',
+                    'top' : 5
+                })
+            }
+            else
+            {
+                floatingDiv.css({
+                    'position' : 'relative',
+                    'top' : 0
+                })
+            }
+            floatingDiv.html(
+                'Window height = ' + $(window).height() + 'Document height = ' + $(document).height()  +
+                'vertical scroll bar position = ' + scrollBarPosition
+            )
+
+            if(scrollBarPosition == $(document).height() - $(window).height()){
+                floatingDiv.html('You have reached bottom of the page');
+            }
+
+       });
+
+
+
+
 ----54 jQuery  .load(url[,data][complete]) - AJAX(asynchronous JS and XML), allows parts of the page to be reload without reloading entire page
     //W
 
@@ -30,7 +219,7 @@ var floatingDiv =  $('#divFloating');
                     'position' : 'relative',
                     'top' : 0
                 })
-            }    
+            }
 
        });
 --- HTML
@@ -170,7 +359,7 @@ HTML - two divs one in another
 }
 .divaut2{
     background-color: red;
-    height: 19px;   
+    height: 19px;
     width: 0px;
     color: white;
     text-align: center;
@@ -180,7 +369,7 @@ HTML - two divs one in another
 
 ------48 jQuery animation Queue(queue function)------------
 ---To use animations in parallel use queue: false
-    
+
         $('#divauto')
         .animate({ 'width' : 500}, {duration: 1500, queue: false})
         .animate({ 'padding' : 20},{duration: 1500, queue: false})
@@ -190,7 +379,7 @@ HTML - two divs one in another
 
 ---Queue(очередь анимации) length
 $('#c1').click(function(){
-        
+
         $.fx.off = $('#chkbox').is(':checked'); // Turns off animation if checkbox is ':checked'
 
         $('#divauto')
@@ -204,13 +393,13 @@ $('#c1').click(function(){
         .animate({ 'font-size' : 50},1500)
         .animate({ 'border-width' : 10},1500)
         .animate({ 'opacity' : 1},1500)
-        
+
         $('#divauto2')
         .animate({ 'width' : 500},1500)
         .animate({ 'padding' : 20},1500)
         .animate({ 'font-size' : 50},1500)
         .animate({ 'border-width' : 10},1500)
-        .animate({ 'opacity' : 1},1500)    
+        .animate({ 'opacity' : 1},1500)
     });
 ---Two elements are begin move together(became bigger/smaller/change color, etc. HM required)
    > One method after another
@@ -221,14 +410,14 @@ $('#c1').click(function(){
         .animate({ 'font-size' : 50},1500)
         .animate({ 'border-width' : 10},1500)
         .animate({ 'opacity' : 1},1500)
-        
+
         $('#divauto')
         .animate({ 'width' : 500},1500)
         .animate({ 'padding' : 20},1500)
         .animate({ 'font-size' : 50},1500)
         .animate({ 'border-width' : 10},1500)
-        .animate({ 'opacity' : 1},1500)    
-    }); 
+        .animate({ 'opacity' : 1},1500)
+    });
 
 
 ---47 Animate function----
@@ -256,7 +445,7 @@ $('#myImg').on({
           $(this).animate({
                 'height' : 100,
                 'width'  : 100
-            },3000);  
+            },3000);
         }
     })
 
@@ -295,7 +484,7 @@ var imagesUrls = new Array();
         {
             currentImageIndex = -1;
         }
-        mainImgElement.attr('src', imagesUrls[currentImageIndex+1]);  
+        mainImgElement.attr('src', imagesUrls[currentImageIndex+1]);
        }
 
        btnStart.click(function(){
@@ -351,21 +540,21 @@ $('#cont2').on({
             mImg = $('#mainImg');
             if( effect == 'Fade'){
             mImg.fadeOut(duration, function(){
-              $(this).attr('src', imgSrc);    
-            }).fadeIn(duration);           
-            } 
+              $(this).attr('src', imgSrc);
+            }).fadeIn(duration);
+            }
             else {
                 mImg.slideUp(duration, function(){
-              $(this).attr('src', imgSrc);  
+              $(this).attr('src', imgSrc);
             }).slideDown(duration);
-            } 
+            }
         }
    }, 'img');
 
        var mainImgElement = $('#mainImg');
        var height = parseInt(mainImgElement.attr('height'));
        var width = parseInt(mainImgElement.attr('width'));
-       
+
        $('#c1').click(function(){
         height += 100;
         width += 100;
@@ -408,7 +597,7 @@ $('#cont2 img').on({
         click: function(){
             var imgSrc = $(this).attr('src');
             $('#mainImg').attr('src', imgSrc);
-        } 
+        }
 
        });
 
@@ -434,7 +623,7 @@ $('#cont2 img').on({
 }
 .cont2 {
     border: 1px
-} 
+}
 
 ------------43 jQuery scroll event--------
 <div id="resPrice" style="height: 200px; width: 200px; border: 1px solid black; overflow: scroll;">
@@ -446,10 +635,10 @@ var lastScrollTop = 0;
             var currentScrollPosition = $(this).scrollTop();
             if(currentScrollPosition > lastScrollTop){
                 $('#divauto').text("You scroll down");
-            } 
+            }
             else{
-                $('#divauto').text("You scroll up");  
-            }   
+                $('#divauto').text("You scroll up");
+            }
             lastScrollTop = currentScrollPosition;
         })
 -------

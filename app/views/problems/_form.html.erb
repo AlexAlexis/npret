@@ -1,0 +1,35 @@
+<h1 id="crtHead">Створити претензію</h1>
+<%= form_for @problem, remote: true do |f| %>
+<p> Вид претензії </p>
+<%= f.text_field(:name) %>
+<p> Номер ТТН </p>
+<%= f.text_field(:consignmentNote) %>
+<p> ІНН  </p>
+<%= f.text_field(:socialNumber) %>
+<p> Паспорт </p>
+<%= f.text_field(:passport) %>
+<p> Описание </p>
+<%= f.text_area(:description) %>
+<p> Сума претензії, грн. </p>
+<%= f.text_field(:claimSum) %>
+<p> Оціночна вартість,грн.  </p>
+<%= f.text_field(:passport) %>
+<br>
+<%= submit_tag("enter") %>
+
+
+<% end %>
+
+
+
+<!--
+t.string :name, default: false
+t.string :consignmentNote, limit: 12
+t.string :socialNumber, limit: 15
+t.string :passport
+t.text :description
+t.integer :telephoneNumber
+t.boolean :decision, default: false
+t.integer :claimSum
+t.integer :insuranceSum
+-->

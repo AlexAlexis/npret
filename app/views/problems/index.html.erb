@@ -1,2 +1,8 @@
-<h1>Problems#index</h1>
-<p>Find me in app/views/problems/index.html.erb</p>
+<div id="mainF1">
+  <h1 id="headWord">Робоче місце по роботі зі зверненнями клієнтів</h1>
+
+  <%= link_to("Створити проблему", new_problem_path, id: 'crt_problem', class: 'btn btn-primary', remote: true) %><br><br>
+  <%= link_to("Звіт по користувач", '#', id: 'report_problem', class: 'btn btn-primary') %> <br><br>
+  <%= link_to("Всі проблемы", problems_list_path, id: 'all_problems', class: 'btn btn-primary') %>
+
+</div>

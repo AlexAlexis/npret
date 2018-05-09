@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20180506092914) do
 
   create_table "problems", force: :cascade do |t|
     t.string "name", default: "f"
-    t.string "consignmentNote", limit: 12
+    t.string "consignmentNote", limit: 15
     t.string "socialNumber", limit: 15
     t.string "passport"
     t.text "description"

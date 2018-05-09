@@ -2,7 +2,7 @@ class CreateProblems < ActiveRecord::Migration[5.1]
   def up
     create_table :problems do |t|
       t.string :name, default: false
-      t.string :consignmentNote, limit: 12
+      t.string :consignmentNote, limit: 15
       t.string :socialNumber, limit: 15
       t.string :passport
       t.text :description

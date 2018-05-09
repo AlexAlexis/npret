@@ -1,0 +1,48 @@
+
+<%= link_to("Назад", root_path, id: '1', class: 'btn btn-primary') %>
+<h1>List of all problems</h1>
+
+  <% @problem.each do |problem| %>
+  <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Вид претензії</th>
+      <th scope="col">ТТН</th>
+      <th scope="col">Вартість</th>
+      <th scope="col">Сума претензії</th>
+      <th scope="col">ІНН</th>
+      <th scope="col">Паспорт</th>
+      <th scope="col">Телефон</th>
+      <th scope="col">Опис претензії</th>
+      <th scope="col">Рішення</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row"><%= problem.id %></th>
+      <td> <%= problem.name %></td>
+      <td> <%= problem.consignmentNote %></td>
+      <td> <%= problem.insuranceSum %> </td>
+      <td> <%= problem.claimSum %> </td>
+      <td> <%= problem.socialNumber %> </td>
+      <td> <%= problem.passport %> </td>
+      <td> <%= problem.telephoneNumber %> </td>
+      <td> <%= problem.description %> </td>
+      <td> <%= problem.decision %> </td>
+  </tbody>
+</table>
+  <% end %>
+
+
+
+<!--
+t.string :consignmentNote, limit: 12
+t.string :socialNumber, limit: 15
+t.string :passport
+t.text :description
+t.integer :telephoneNumber
+t.boolean :decision, default: false
+t.integer :claimSum
+t.integer :insuranceSum
+-->

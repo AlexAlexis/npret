@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
+
   root 'problems#index'
 
+  get 'problems/list'
   resources :problems do
     member do
       get :delete

@@ -36,7 +36,7 @@ class ProblemsController < ApplicationController
 
   def index
     sleep 1
-    @arr1 = ["first", "second","last","third"]    
+    @arr1 = ["first", "second","last","third"]
   end
 
   def show
@@ -44,6 +44,15 @@ class ProblemsController < ApplicationController
   def list
     @problem = Problem.all
   end
+
+  def searchTablet
+
+  end
+
+  def searchEngine
+
+  end
+
   private
   def problem_params
     params.require(:problem).permit(:name, :consignmentNote,:socialNumber, :passport,

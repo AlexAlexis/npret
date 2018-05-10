@@ -16,9 +16,9 @@ ActiveRecord::Schema.define(version: 20180506092914) do
   enable_extension "plpgsql"
 
   create_table "problems", force: :cascade do |t|
-    t.string "name", default: "f"
-    t.string "consignmentNote", limit: 15
-    t.string "socialNumber", limit: 15
+    t.string "name"
+    t.string "consignmentNote"
+    t.string "socialNumber"
     t.string "passport"
     t.text "description"
     t.integer "telephoneNumber"

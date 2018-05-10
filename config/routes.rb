@@ -4,9 +4,11 @@ Rails.application.routes.draw do
   root 'problems#index'
 
   get 'problems/list'
+  get 'problems/searchTablet'
   resources :problems do
     member do
       get :delete
+      patch :searchEngine
     end
   end
 

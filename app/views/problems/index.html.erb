@@ -1,3 +1,10 @@
+<% if !flash[:notice].blank? %>
+<div id="flashF" class="btn btn-secondary btn-danger alrtButton">
+<%= flash[:notice] %>
+</div>
+<% end %>
+
+
 <div id="mainF1">
   <h1 id="headWord">Робоче місце по роботі зі зверненнями клієнтів</h1>
 

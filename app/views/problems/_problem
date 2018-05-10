@@ -1,6 +1,0 @@
-<h1>List of all problems</h1>
-
-  <% @problem.each do |problem| %>
-  <%= problem.name %>
-
-  <% end %>

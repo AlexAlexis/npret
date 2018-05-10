@@ -1,9 +1,4 @@
 
-var aCounter = "255";
-var fuck = [10,20,20,50,50,22,27];
-var noob = fuck.length;
-
-
 
 /*
 

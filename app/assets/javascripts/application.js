@@ -18,17 +18,10 @@
 //= require turbolinks
 // require_tree .
 //= require user
+//= require problem
 
 $(document).ready(function () {
-    $('.destroy').on('click', function() {
-        $.ajax({
-        url: '/users/' + this.parentElement.id,
-        type: 'DELETE',
-        success: function(r){
-
-        }
-        });
-    });
-
+  $('#flashF').on('click', function () {
+    $(this).hide();
+  })
 });
-

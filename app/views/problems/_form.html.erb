@@ -1,5 +1,5 @@
 <h1 id="crtHead">Створити претензію</h1>
-<%= form_for @problem, remote: true do |f| %>
+<%= form_for @problem, multipart: true do |f| %>
 <p> Вид претензії </p>
 <%= f.text_field(:name) %>
 <p> Номер ТТН </p>
@@ -8,11 +8,12 @@
 <%= f.text_field(:socialNumber) %>
 <p> Паспорт </p>
 <%= f.text_field(:passport) %>
-<p> Описание </p>
+<!--<p> Опис проблеми </p>              //Після переходу на накладну відкривається
 <%= f.text_area(:description) %>
+-->
 <p> Сума претензії, грн. </p>
 <%= f.text_field(:claimSum) %>
-<p> Оціночна вартість,грн.  </p>
+<p> Оголошена вартість,грн.  </p>
 <%= f.text_field(:passport) %>
 <br>
 <%= submit_tag("enter") %>

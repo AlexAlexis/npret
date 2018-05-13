@@ -1,0 +1,11 @@
+<%= link_to("Назад", root_path, class: 'btn btn-primary') %>
+<div id="searchResult"></div>
+<%= form_for @searchData, url: {action: "searchEngine"}, remote: true do |f| %>
+  <p> ІНН  </p>
+  <%= f.text_field(:socialNumber) %>
+  <p> Паспорт </p>
+  <%= f.text_field(:passport) %>
+  <p> Телефон</p>
+  <%= f.text_field(:telephoneNumber) %>
+  <%= submit_tag("enter") %>
+  <% end %>

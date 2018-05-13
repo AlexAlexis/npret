@@ -10,6 +10,7 @@ class CreateProblems < ActiveRecord::Migration[5.1]
       t.boolean :decision, default: false
       t.integer :claimSum
       t.integer :insuranceSum
+      t.integer :test12
 
 
       t.timestamps

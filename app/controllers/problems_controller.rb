@@ -10,11 +10,11 @@ class ProblemsController < ApplicationController
       @problems = Problem.all
       @problems.each do |f|
         if f.socialNumber == @problem.socialNumber
-        flash[:notice] = "Клієнт з таким ІНН вже мав претензії. Перевірте відбором."
+        flash[:notice] = "Клієнт з ІНН #{@problem.socialNumber} вже мав претензії. Перевірте відбором."
         elsif f.passport == @problem.passport
-          flash[:notice] = "Клієнт з таким Паспортом вже мав претензії. Перевірте відбором."
+          flash[:notice] = "Клієнт з паспортом: #{@problem.passport} вже мав претензії. Перевірте відбором."
         elsif f.telephoneNumber == @problem.telephoneNumber
-          flash[:notice] = "Клієнт з таким Телефоном вже мав претензії. Перевірте відбором."
+          flash[:notice] = "Клієнт з телефоном: #{@problem.telephoneNumber} вже мав претензії. Перевірте відбором."
         end
       end
       @problem.save(problem_params)
@@ -46,10 +46,28 @@ class ProblemsController < ApplicationController
   end
 
   def searchTablet
+    @searchData = Problem.new
 
   end
 
   def searchEngine
+    @resultArray = []
+    @searchData = Problem.new(problem_params)
+    @problems = Problem.all
+      @problems.each do |problem|
+        if problem.socialNumber == @searchData.socialNumber
+          @resultArray << problem
+        elsif problem.passport == @searchData.passport
+          @resultArray << problem
+        elsif problem.telephoneNumber == @searchData.telephoneNumber
+          @resultArray << problem
+        end
+      end
+
+    respond_to do |format|
+    format.html {redirect_to problems_url}
+    format.js
+    end
 
   end
 

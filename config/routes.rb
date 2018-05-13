@@ -5,10 +5,10 @@ Rails.application.routes.draw do
 
   get 'problems/list'
   get 'problems/searchTablet'
+  post 'problems/searchEngine'
   resources :problems do
     member do
       get :delete
-      patch :searchEngine
     end
   end
 

@@ -17,11 +17,11 @@ class ProblemsController < ApplicationController
           flash[:notice] = "Клієнт з телефоном: #{@problem.telephoneNumber} вже мав претензії. Перевірте відбором."
         end
       end
-      @problem.save(problem_params)
-      respond_to do |format|
-      format.html {redirect_to problems_url}
-      format.js
-    end
+      if @problem.save(problem_params)
+        redirect_to root_path
+      else
+      render(partial: 'form')
+      end
 
   end
 
@@ -36,7 +36,7 @@ class ProblemsController < ApplicationController
 
   def index
     sleep 1
-    @arr1 = ["first", "second","last","third"]
+
   end
 
   def show

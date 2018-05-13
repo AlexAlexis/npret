@@ -1,25 +1,54 @@
+
+
 <h1 id="crtHead">Створити претензію</h1>
 <%= form_for @problem, multipart: true do |f| %>
-<p> Вид претензії </p>
-<%= f.text_field(:name) %>
-<p> Номер ТТН </p>
-<%= f.text_field(:consignmentNote) %>
-<p> ІНН  </p>
-<%= f.text_field(:socialNumber) %>
-<p> Паспорт </p>
-<%= f.text_field(:passport) %>
-<p> Телефон</p>
-<%= f.text_field(:telephoneNumber) %>
-<p> Сума претензії, грн. </p>
-<%= f.text_field(:claimSum) %>
-<p> Оголошена вартість,грн.  </p>
-<%= f.text_field(:insuranceSum) %>
+<%= error_messages_for(f.object) %>
+<div class="input-group input-group-sm mb-3">
+  <div class="input-group-prepend">
+    <p class="input-group-text" id="inputGroup-sizing-sm">Вид претензії:</p>
+  </div>
+<%= f.text_field(:name, class: 'customInput', style: 'width: 34%;') %>
+</div>
+<div class="input-group input-group-sm mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-sm">ТТН: </span>
+  </div>
+<%= f.text_field(:consignmentNote, class: 'customInput', style: 'width: 39.35%;') %>
+</div>
+<div class="input-group input-group-sm mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-sm">ІНН: </span>
+  </div>
+<%= f.text_field(:socialNumber, class: 'customInput', style: 'width: 39.5%;') %>
+</div>
+<div class="input-group input-group-sm mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-sm">Паспорт: </span>
+  </div>
+<%= f.text_field(:passport, class: 'customInput', style: 'width: 36.8%;') %>
+</div>
+<div class="input-group input-group-sm mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-sm">Телефон: </span>
+  </div>
+<%= f.text_field(:telephoneNumber, class: 'customInput', style: 'width: 36.5%;') %>
+</div>
+<div class="input-group input-group-sm mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-sm">Претензія: </span>
+  </div>
+<%= f.text_field(:claimSum, class: 'customInput', style: 'width: 36%;') %>
+</div>
+<div class="input-group input-group-sm mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-sm">Оголошена вартість: </span>
+  </div>
+<%= f.text_field(:insuranceSum, class: 'customInput') %>
+</div>
 <br>
-<%= submit_tag("enter") %>
-
-
+<%= submit_tag("Створити", class: 'btn btn-primary btn-lg') %>
+<%= link_to("Відмінити", root_path, class: 'btn btn-danger') %>
 <% end %>
-
 
 
 <!--

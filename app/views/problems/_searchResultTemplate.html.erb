@@ -1,9 +1,8 @@
 <h1>Результат пошуку </h1>
-<% @resultArray.each do |problem| %>
 <table class="table">
 <thead>
   <tr>
-    <th scope="col">#</th>
+
     <th scope="col">Вид претензії</th>
     <th scope="col">ТТН</th>
     <th scope="col">Вартість</th>
@@ -15,8 +14,9 @@
   </tr>
 </thead>
 <tbody>
+  <% @resultArray.each do |problem| %>
   <tr>
-    <th scope="row"><%= problem.id %></th>
+    
     <td> <%= problem.name %></td>
     <td> <%= problem.consignmentNote %></td>
     <td> <%= problem.insuranceSum %> </td>
@@ -25,7 +25,7 @@
     <td> <%= problem.passport %> </td>
     <td> <%= problem.telephoneNumber %> </td>
     <td> <%= problem.decision %> </td>
+  </tr>
+  <% end %>
 </tbody>
 </table>
-
-<% end %>

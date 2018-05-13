@@ -1,11 +1,14 @@
 <%= link_to("Назад", root_path, class: 'btn btn-primary') %>
+<br>
+<br>
 <div id="searchResult"></div>
 <%= form_for @searchData, url: {action: "searchEngine"}, remote: true do |f| %>
   <p> ІНН  </p>
-  <%= f.text_field(:socialNumber) %>
+  <%= f.text_field(:socialNumber, class: 'customInput') %>
   <p> Паспорт </p>
-  <%= f.text_field(:passport) %>
+  <%= f.text_field(:passport, class: 'customInput') %>
   <p> Телефон</p>
-  <%= f.text_field(:telephoneNumber) %>
-  <%= submit_tag("enter") %>
+  <%= f.text_field(:telephoneNumber, class: 'customInput') %>
+  <br> <br>
+  <%= submit_tag("Створити звіт", class: 'btn btn-primary') %>
   <% end %>

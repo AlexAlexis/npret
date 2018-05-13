@@ -1,0 +1,26 @@
+<% if object && object.errors.size > 0 %>
+  <div>
+        <p> Наступні поля повинні бути заповнені: </p>
+        <ul>
+          <% object.errors.full_messages.each do |msg| %>
+            <% if  msg  == "Consignmentnote can't be blank" %>
+            <li>Поле з номером ТТН не повинно бути пустим.</li>
+            <% elsif  msg  == "Name can't be blank" %>
+              <li>Поле з Видом претензії не повинно бути пустим.</li>
+            <% elsif  msg  == "Socialnumber can't be blank" %>
+              <li>Поле з номером ІНН не повинно бути пустим.</li>
+            <% elsif  msg  == "Passport can't be blank" %>
+              <li>Поле з паспортом не повинно бути пустим.</li>
+            <% elsif  msg  == "Telephonenumber can't be blank" %>
+            <li>Поле з номером телефону не повинно бути пустим.</li>
+              <% elsif  msg  == "Claimsum can't be blank" %>
+            <li>Поле з претензією не повинно бути пустим.</li>
+              <% elsif  msg  == "Insurancesum can't be blank" %>
+            <li>Поле з оголошеною вартістю не повинно бути пустим.</li>
+              <% else %>
+              <li> <%= msg %> </li>
+              <% end %>
+          <% end %>
+        </ul>
+      </div>
+      <% end %>

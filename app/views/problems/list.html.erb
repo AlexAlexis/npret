@@ -1,12 +1,10 @@
 
 <%= link_to("Назад", root_path, id: '1', class: 'btn btn-primary') %>
 <h1>Список усіх проблем</h1>
-
-  <% @problem.each do |problem| %>
   <table class="table">
   <thead>
     <tr>
-      <th scope="col">#</th>
+
       <th scope="col">Вид претензії</th>
       <th scope="col">ТТН</th>
       <th scope="col">Вартість</th>
@@ -19,7 +17,8 @@
   </thead>
   <tbody>
     <tr>
-      <th scope="row"><%= problem.id %></th>
+      <% @problem.each do |problem| %>
+      
       <td> <%= problem.name %></td>
       <td> <%= problem.consignmentNote %></td>
       <td> <%= problem.insuranceSum %> </td>
@@ -28,9 +27,11 @@
       <td> <%= problem.passport %> </td>
       <td> <%= problem.telephoneNumber %> </td>
       <td> <%= problem.decision %> </td>
+    </tr>
+      <% end %>
   </tbody>
 </table>
-  <% end %>
+
 
 
 

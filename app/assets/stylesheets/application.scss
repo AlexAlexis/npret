@@ -28,3 +28,13 @@
 .alrtButton{
   font-size: 20px;
 }
+.customInput {
+  width: 30%;
+  border-radius: 2px;
+}
+.customInput:focus{
+  background-color: #ebf7f9;
+}
+.buttonInput{
+  left: 550px;
+}

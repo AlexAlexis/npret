@@ -1,5 +1,5 @@
 
-
+<div id="listcontainer">
 <h1 id="crtHead">Створити претензію</h1>
 <%= form_for @problem, multipart: true do |f| %>
 <%= error_messages_for(f.object) %>
@@ -47,9 +47,10 @@
 </div>
 <br>
 <%= submit_tag("Створити", class: 'btn btn-primary btn-lg') %>
-<%= link_to("Відмінити", root_path, class: 'btn btn-danger') %>
+<input type="button" id="backbutton" value="НазадJS" class="btn btn-danger">
+<%= link_to("Назад", root_path, class: 'btn btn-primary') %>
 <% end %>
-
+</div>
 
 <!--
 t.string :name, default: false

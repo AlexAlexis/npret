@@ -43,11 +43,18 @@ class ProblemsController < ApplicationController
   end
   def list
     @problem = Problem.all
+    respond_to do |format|
+    format.html {redirect_to problems_url}
+    format.js
+    end
   end
 
   def searchTablet
     @searchData = Problem.new
-
+    respond_to do |format|
+    format.html {redirect_to problems_url}
+    format.js
+    end
   end
 
   def searchEngine

@@ -1,1 +1,5 @@
-$('#mainF1').hide().after('<%= j render("searchTemplate") %>');
+$('#mainF1').hide().after('<%= j render("searchtemplate") %>');
+$('#backbutton').click(function () {
+  $('#listcontainer').remove();
+  $('#mainF1').show();
+})

@@ -25,7 +25,6 @@ ActiveRecord::Schema.define(version: 20180506092914) do
     t.boolean "decision", default: false
     t.integer "claimSum"
     t.integer "insuranceSum"
-    t.integer "test12"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

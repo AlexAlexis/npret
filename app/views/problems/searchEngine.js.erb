@@ -1,3 +1,7 @@
 alert("Звіт відображає повну картину, з ІНН клієнта, його паспортом та телфоном. Показує якими ще паспортами, телефонами та ІНН він користувався.");
 $('#new_problem').remove();
 $('#searchResult').append('<%= j render('searchResultTemplate') %>');
+$('#backbutton').click(function () {
+  $('#listcontainer').remove();
+  $('#mainF1').show();
+})

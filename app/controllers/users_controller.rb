@@ -3,15 +3,14 @@ class UsersController < ApplicationController
     sleep 1
     @user = User.all
   end
-  
+
 
   def show
     @user = User.find(params[:id])
   end
 
   def new
-    @user = User.new({first_name: 'Pudge', last_name: 'The hook master', phone: '+380970421578',
-                      email: 'Hooker@novaposhta.ua'})
+    @user = User.new
   end
   def publish
       sleep 2

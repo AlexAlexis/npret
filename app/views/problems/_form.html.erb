@@ -1,65 +1,86 @@
-
+<div class="createProblemContainer">
 <div id="listcontainer">
 <h1 id="crtHead">Створити претензію</h1>
 <%= form_for @problem, multipart: true do |f| %>
-<%= error_messages_for(f.object) %>
+
+  <!-- EMPTY FIELD CHECK -->
+
+  <% if f.object && f.object.errors.size > 0 %>
+    <div class="errorContainer">
+          <p> Наступні поля повинні бути заповнені: </p>
+          <ul>
+            <% f.object.errors.full_messages.each do |msg| %>
+              <% if  msg  == "Consignmentnote can't be blank" %>
+              <li>Поле з номером ТТН не повинно бути пустим.</li>
+              <% elsif  msg  == "Name can't be blank" %>
+                <li>Поле з Видом претензії не повинно бути пустим.</li>
+              <% elsif  msg  == "Socialnumber can't be blank" %>
+                <li>Поле з номером ІНН не повинно бути пустим.</li>
+              <% elsif  msg  == "Passport can't be blank" %>
+                <li>Поле з паспортом не повинно бути пустим.</li>
+              <% elsif  msg  == "Telephonenumber can't be blank" %>
+              <li>Поле з номером телефону не повинно бути пустим.</li>
+                <% elsif  msg  == "Claimsum can't be blank" %>
+              <li>Поле з претензією не повинно бути пустим.</li>
+                <% elsif  msg  == "Insurancesum can't be blank" %>
+              <li>Поле з оголошеною вартістю не повинно бути пустим.</li>
+                <% else %>
+                <li> <%= msg %> </li>
+                <% end %>
+            <% end %>
+          </ul>
+        </div>
+        <% end %>
+<!------------------------------- END CHECK------------------------------ -->
+<br>
+<div class="container">
 <div class="input-group input-group-sm mb-3">
   <div class="input-group-prepend">
     <p class="input-group-text" id="inputGroup-sizing-sm">Вид претензії:</p>
   </div>
-<%= f.text_field(:name, class: 'customInput', style: 'width: 34%;') %>
+<%= f.text_field(:name, class: 'form-control', placeholder: 'Вид претензії...') %>
 </div>
 <div class="input-group input-group-sm mb-3">
   <div class="input-group-prepend">
     <span class="input-group-text" id="inputGroup-sizing-sm">ТТН: </span>
   </div>
-<%= f.text_field(:consignmentNote, class: 'customInput', style: 'width: 39.35%;') %>
+<%= f.text_field(:consignmentNote, class: 'form-control') %>
 </div>
 <div class="input-group input-group-sm mb-3">
   <div class="input-group-prepend">
     <span class="input-group-text" id="inputGroup-sizing-sm">ІНН: </span>
   </div>
-<%= f.text_field(:socialNumber, class: 'customInput', style: 'width: 39.5%;') %>
+<%= f.text_field(:socialNumber, class: 'form-control') %>
 </div>
 <div class="input-group input-group-sm mb-3">
   <div class="input-group-prepend">
     <span class="input-group-text" id="inputGroup-sizing-sm">Паспорт: </span>
   </div>
-<%= f.text_field(:passport, class: 'customInput', style: 'width: 36.8%;') %>
+<%= f.text_field(:passport, class: 'form-control') %>
 </div>
 <div class="input-group input-group-sm mb-3">
   <div class="input-group-prepend">
     <span class="input-group-text" id="inputGroup-sizing-sm">Телефон: </span>
   </div>
-<%= f.text_field(:telephoneNumber, class: 'customInput', style: 'width: 36.5%;') %>
+<%= f.text_field(:telephoneNumber, class: 'form-control') %>
 </div>
 <div class="input-group input-group-sm mb-3">
   <div class="input-group-prepend">
     <span class="input-group-text" id="inputGroup-sizing-sm">Претензія: </span>
   </div>
-<%= f.text_field(:claimSum, class: 'customInput', style: 'width: 36%;') %>
+<%= f.text_field(:claimSum, class: 'form-control') %>
 </div>
 <div class="input-group input-group-sm mb-3">
   <div class="input-group-prepend">
     <span class="input-group-text" id="inputGroup-sizing-sm">Оголошена вартість: </span>
   </div>
-<%= f.text_field(:insuranceSum, class: 'customInput') %>
+<%= f.text_field(:insuranceSum, class: 'form-control') %>
 </div>
 <br>
-<%= submit_tag("Створити", class: 'btn btn-primary btn-lg') %>
-<!-- <input type="button" id="backbutton" value="НазадJS" class="btn btn-danger"> -->
-<%= link_to("Назад", root_path, class: 'btn btn-primary') %>
+<%= submit_tag "Створити", class: 'btn btn-primary btn-lg', id: 'createButton' %>
+<input type="button" id="backbutton" value="Назад" class="btn btn-danger">
 <% end %>
 </div>
-
-<!--
-t.string :name, default: false
-t.string :consignmentNote, limit: 12
-t.string :socialNumber, limit: 15
-t.string :passport
-t.text :description
-t.integer :telephoneNumber
-t.boolean :decision, default: false
-t.integer :claimSum
-t.integer :insuranceSum
--->
+</div>
+</div>
+<!--------------------------------- TEST -->

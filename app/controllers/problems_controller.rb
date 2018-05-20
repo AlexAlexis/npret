@@ -1,7 +1,7 @@
 class ProblemsController < ApplicationController
 
   def new
-    @problem = Problem.new({name: 'Пошкодження'})
+    @problem = Problem.new()
 
   end
 
@@ -20,7 +20,7 @@ class ProblemsController < ApplicationController
       if @problem.save(problem_params)
         redirect_to root_path
       else
-      render(partial: 'form')
+      render('new')
       end
 
   end

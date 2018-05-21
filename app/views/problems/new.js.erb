@@ -3,5 +3,64 @@ $('#flashF').hide();
 $('#backbutton').click(function () {
   $('#listcontainer').remove();
   $('#mainF1').show();
-})
-$('#createButton').disabled = false;
+});
+$('#enableButton').click( function () {
+    $('#createButton').removeAttr('disabled');
+});
+
+
+$('.form-control').focusout( function() {
+
+  var tes1 = $('#problemNameField').val();
+  var tes2 = $('#problemNameField2').val();
+  var tes3 = $('#problemNameField3').val();
+  var tes4 = $('#problemNameField4').val();
+  var tes5 = $('#problemNameField5').val();
+  var tes6 = $('#problemNameField6').val();
+  var tes7 = $('#problemNameField7').val();
+
+  // Enable create button code
+  if (tes1.length > 0 && tes2.length > 0  && tes3.length > 0 && tes4.length > 0
+    && tes5.length > 0 && tes6.length > 0 && tes7.length > 0 ) {
+      $('#createButton').removeAttr('disabled');
+  }
+
+  // End of enable button code
+  if ( tes1.length > 0 ) {
+    $('#problemName').hide();
+  } else  {
+      $('#problemName').show();
+  };
+  if ( tes2.length > 0 ) {
+    $('#problemName2').hide();
+  } else  {
+      $('#problemName2').show();
+  };
+  if ( tes3.length > 0 ) {
+    $('#problemName3').hide();
+  } else  {
+      $('#problemName3').show();
+  };
+  if ( tes4.length > 0 ) {
+    $('#problemName4').hide();
+  } else  {
+      $('#problemName4').show();
+  };
+  if ( tes5.length > 0 ) {
+    $('#problemName5').hide();
+  } else  {
+      $('#problemName5').show();
+  };
+  if ( tes6.length > 0 ) {
+    $('#problemName6').hide();
+  } else  {
+      $('#problemName6').show();
+  };
+  if ( tes7.length > 0 ) {
+    $('#problemName7').hide();
+  } else  {
+      $('#problemName7').show();
+  };
+
+
+});

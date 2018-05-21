@@ -32,53 +32,65 @@
         </div>
         <% end %>
 <!------------------------------- END CHECK------------------------------ -->
+
 <br>
 <div class="container">
 <div class="input-group input-group-sm mb-3">
   <div class="input-group-prepend">
     <p class="input-group-text" id="inputGroup-sizing-sm">Вид претензії:</p>
   </div>
-<%= f.text_field(:name, class: 'form-control', placeholder: 'Вид претензії...') %>
+<%= f.text_field(:name, class: 'form-control', placeholder: 'Вид претензії...', id: 'problemNameField') %>
+<p id="problemName" class="emptyFieldDescription">Поле не повинно бути пустим.<p>
 </div>
+
 <div class="input-group input-group-sm mb-3">
   <div class="input-group-prepend">
     <span class="input-group-text" id="inputGroup-sizing-sm">ТТН: </span>
   </div>
-<%= f.text_field(:consignmentNote, class: 'form-control') %>
+<%= f.text_field(:consignmentNote, class: 'form-control', id: 'problemNameField2') %>
+<p id="problemName2" class="emptyFieldDescription">Поле не повинно бути пустим.<p>
 </div>
 <div class="input-group input-group-sm mb-3">
   <div class="input-group-prepend">
     <span class="input-group-text" id="inputGroup-sizing-sm">ІНН: </span>
   </div>
-<%= f.text_field(:socialNumber, class: 'form-control') %>
+<%= f.text_field(:socialNumber, class: 'form-control', id: 'problemNameField3') %>
+<p id="problemName3" class="emptyFieldDescription">Поле не повинно бути пустим.<p>
 </div>
 <div class="input-group input-group-sm mb-3">
   <div class="input-group-prepend">
     <span class="input-group-text" id="inputGroup-sizing-sm">Паспорт: </span>
   </div>
-<%= f.text_field(:passport, class: 'form-control') %>
+<%= f.text_field(:passport, class: 'form-control', id: 'problemNameField4') %>
+<p id="problemName4" class="emptyFieldDescription">Поле не повинно бути пустим.<p>
 </div>
+
 <div class="input-group input-group-sm mb-3">
   <div class="input-group-prepend">
     <span class="input-group-text" id="inputGroup-sizing-sm">Телефон: </span>
   </div>
-<%= f.text_field(:telephoneNumber, class: 'form-control') %>
+<%= f.text_field(:telephoneNumber, class: 'form-control', id: 'problemNameField5') %>
+<p id="problemName5" class="emptyFieldDescription">Поле не повинно бути пустим.<p>
 </div>
+
 <div class="input-group input-group-sm mb-3">
   <div class="input-group-prepend">
     <span class="input-group-text" id="inputGroup-sizing-sm">Претензія: </span>
   </div>
-<%= f.text_field(:claimSum, class: 'form-control') %>
+<%= f.text_field(:claimSum, class: 'form-control', id: 'problemNameField6') %>
+<p id="problemName6" class="emptyFieldDescription">Поле не повинно бути пустим.<p>
 </div>
 <div class="input-group input-group-sm mb-3">
   <div class="input-group-prepend">
     <span class="input-group-text" id="inputGroup-sizing-sm">Оголошена вартість: </span>
   </div>
-<%= f.text_field(:insuranceSum, class: 'form-control') %>
+<%= f.text_field(:insuranceSum, class: 'form-control', id: 'problemNameField7') %>
+<p id="problemName7" class="emptyFieldDescription">Поле не повинно бути пустим.<p>
 </div>
 <br>
-<%= submit_tag "Створити", class: 'btn btn-primary btn-lg', id: 'createButton' %>
+<%= submit_tag "Створити", class: 'btn btn-primary btn-lg', disabled: 'disabled', id: 'createButton' %>
 <input type="button" id="backbutton" value="Назад" class="btn btn-danger">
+
 <% end %>
 </div>
 </div>

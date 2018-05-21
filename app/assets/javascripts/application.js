@@ -23,6 +23,7 @@
 $(document).ready(function () {
   $('#flashF').on('click', function () {
     $(this).hide();
-  })
+  });
+  
 
 });

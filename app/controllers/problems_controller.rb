@@ -1,5 +1,7 @@
 class ProblemsController < ApplicationController
 
+
+
   def new
     @problem = Problem.new()
 
@@ -8,20 +10,25 @@ class ProblemsController < ApplicationController
   def create
     @problem = Problem.new(problem_params)
       @problems = Problem.all
+
       @problems.each do |f|
         if f.socialNumber == @problem.socialNumber
         flash[:notice] = "Клієнт з ІНН #{@problem.socialNumber} вже мав претензії. Перевірте відбором."
         elsif f.passport == @problem.passport
           flash[:notice] = "Клієнт з паспортом: #{@problem.passport} вже мав претензії. Перевірте відбором."
+
         elsif f.telephoneNumber == @problem.telephoneNumber
           flash[:notice] = "Клієнт з телефоном: #{@problem.telephoneNumber} вже мав претензії. Перевірте відбором."
+        
         end
       end
-      if @problem.save(problem_params)
-        redirect_to root_path
-      else
-      render('new')
-      end
+
+      @problem.save(problem_params)
+
+        respond_to do |format|
+        format.html {redirect_to problems_url}
+          format.js
+        end
 
   end
 

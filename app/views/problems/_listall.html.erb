@@ -1,6 +1,7 @@
 <div id="listcontainer">
 <input type="button" id="backbutton" value="Назад" class="btn btn-primary">
 <h1>Список усіх проблем</h1>
+<%= link_to "Завантажити список", problems_path(format: "xls"), class: 'btn btn-primary' %>
   <table class="table">
   <thead>
     <tr>

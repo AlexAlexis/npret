@@ -1,6 +1,6 @@
 class ProblemsController < ApplicationController
 
-
+  $array;
 
   def new
     @problem = Problem.new()
@@ -19,7 +19,7 @@ class ProblemsController < ApplicationController
 
         elsif f.telephoneNumber == @problem.telephoneNumber
           flash[:notice] = "Клієнт з телефоном: #{@problem.telephoneNumber} вже мав претензії. Перевірте відбором."
-        
+
         end
       end
 
@@ -42,8 +42,12 @@ class ProblemsController < ApplicationController
   end
 
   def index
-    sleep 1
-
+    @problems = Problem.all
+    respond_to do |format|
+      format.html
+      format.csv { send_data @problems.to_csv, :filename => 'hello.csv' }
+      format.xls { send_data @problems.to_csv(col_sep: "\t") }
+    end
   end
 
   def show
@@ -65,23 +69,36 @@ class ProblemsController < ApplicationController
   end
 
   def searchEngine
-    @resultArray = []
+    $resultArray = Array.new
     @searchData = Problem.new(problem_params)
     @problems = Problem.all
       @problems.each do |problem|
         if problem.socialNumber == @searchData.socialNumber
-          @resultArray << problem
+          $resultArray << problem
+
         elsif problem.passport == @searchData.passport
-          @resultArray << problem
+          $resultArray << problem
+
         elsif problem.telephoneNumber == @searchData.telephoneNumber
-          @resultArray << problem
+          $resultArray << problem
+
         end
       end
-
+    Problem.where( id: $resultArray.map(&:id))
     respond_to do |format|
     format.html {redirect_to problems_url}
     format.js
+
+
     end
+    def getFoundList
+      respond_to do |format|
+        format.html
+        format.csv { send_data Problem.where( id: $resultArray.map(&:id)).to_csv, filename: 'Спиcок.csv' }
+        format.xls { send_data @object.to_csv }
+      end
+    end
+
 
   end
 

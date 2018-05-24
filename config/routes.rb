@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   get 'problems/list'
   get 'problems/searchTablet'
   post 'problems/searchEngine'
+  get 'problems/getFoundList'
   resources :problems do
+
     member do
       get :delete
     end

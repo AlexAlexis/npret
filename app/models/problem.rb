@@ -14,7 +14,11 @@ class Problem < ApplicationRecord
     end
   end
 
-  
+  def self.testFunction
+      "Hello" + value
+  end
+
+
 
 
   validates_presence_of :name

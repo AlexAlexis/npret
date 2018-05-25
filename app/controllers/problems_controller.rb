@@ -14,7 +14,7 @@ class ProblemsController < ApplicationController
       @problems.each do |f|
         if f.socialNumber == @problem.socialNumber
         flash[:notice] = "Клієнт з ІНН #{@problem.socialNumber} вже мав претензії. Перевірте відбором."
-        elsif f.passport == @problem.passport
+      elsif f.passport == @problem.passport
           flash[:notice] = "Клієнт з паспортом: #{@problem.passport} вже мав претензії. Перевірте відбором."
 
         elsif f.telephoneNumber == @problem.telephoneNumber
@@ -24,7 +24,6 @@ class ProblemsController < ApplicationController
       end
 
       @problem.save(problem_params)
-
         respond_to do |format|
         format.html {redirect_to problems_url}
           format.js

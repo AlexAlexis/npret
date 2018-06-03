@@ -1,14 +1,14 @@
 Rails.application.routes.draw do
 
 
-  root 'problems#index'
+
+  root 'returns#index'
 
   get 'problems/list'
   get 'problems/searchTablet'
   post 'problems/searchEngine'
   get 'problems/getFoundList'
   resources :problems do
-
     member do
       get :delete
     end
@@ -20,6 +20,16 @@ Rails.application.routes.draw do
       patch :publish
     end
   end
+
+  resources :returns do
+    collection do
+      get 'list'
+      get 'generate'
+      get 'sort'
+      get 'erase'
+    end
+  end
+
 
 
 

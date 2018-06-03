@@ -10,7 +10,7 @@ class ProblemsController < ApplicationController
   def create
     @problem = Problem.new(problem_params)
       @problems = Problem.all
-
+      #@problems.have_same_values?()              #fix later
       @problems.each do |f|
         if f.socialNumber == @problem.socialNumber
         flash[:notice] = "Клієнт з ІНН #{@problem.socialNumber} вже мав претензії. Перевірте відбором."
@@ -42,6 +42,7 @@ class ProblemsController < ApplicationController
 
   def index
     @problems = Problem.all
+    @prob = @problems.last.social_number
     respond_to do |format|
       format.html
       format.csv { send_data @problems.to_csv, :filename => 'hello.csv' }

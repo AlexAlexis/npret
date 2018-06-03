@@ -1,0 +1,33 @@
+<div id="sortedList">
+  <%= link_to "Завантажити список", sort_returns_path(format: "csv"), class: "btn btn-primary" %>
+<h4>ТТН клієнтів які раніше не користувались послугами ТОВ "Нова Пошта".</h4>
+
+
+<div class="container">                                                                              
+  <div class="table-responsive">          
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Номер ТТН:</th>
+        <th>Місто отримувач</th>
+        <th>Зворотня доставка, грн.</th>
+        <th>Номер телефону </th>
+        <th>Cтворено</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <% @resultArray.each do |f| %>
+      <tr>
+        <td><%= f.consignmentNote %></td>
+        <td><%= f.city %></td>
+        <td><%= f.cashback %></td>
+        <td><%= "0" + f.telephoneNumber.to_s %></td>
+        <td><%= f.created_at.strftime("%d.%m.%Y") %></td>     
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  </div>
+</div>
+</div>

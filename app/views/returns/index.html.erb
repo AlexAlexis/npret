@@ -1,0 +1,68 @@
+<h1 style="text-align: center;">Робоче місце з аналізу зворотньої доставки.</h1>
+
+  <style>
+    /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+    .row.content {height: 1500px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+    
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height: auto;} 
+    }
+  </style>
+</head>
+<body>
+
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-3 sidenav">
+    	<br>      
+        <%= link_to "Генерувати ТТН", generate_returns_path, class: 'btn btn-primary', remote: true %><br><br>
+        <%= link_to "Аналіз зворотної доставки", sort_returns_path, class: 'btn btn-primary', id: 'sortbutton', remote: true %><br><br>
+        <%= link_to "Список всіх ТТН", list_returns_path, class: 'btn btn-primary', id: 'listbutton', remote: true %> <br><br>
+        <%= link_to "Очистити базу ТТН", erase_returns_path, class: 'btn btn-danger' %>             
+        <br><br>    
+       
+    </div>
+    <div class="col-sm-9">   
+      <div id="mainPageDescription">
+      <h5><span class="glyphicon glyphicon-time"></span> Робоче місце з аналізу зворотньої доставки дозволить: </h5>
+      <br>
+      <p> -  Проводити попередній аналіз клієнтів отримувачів вантажу.</p>
+      <p> - Виявляти клієнтів з великою сумою зворотньої доставки і які раніше не користувались послугами ТОВ "Нова Пошта".</p><br>
+      <p><strong>Принцип роботи:</strong></p>
+      <p>1. Натисніть кнопку "Генерувати ТТН" - після чого буде створено 4 випадкових номерів ТТН, з сумами зворотньої доставки від 200,00 грн. до 20 тис. грн. Мобільний телефон в ТТН генерується випадково в межах з 0675763650 до 0675763665. </p>
+      <p>2. Після генерування ТТН натисніть кнопку "Аналіз зворотньої доставки", після чого відкриється список ТТН зі зворотньою доставкою білше 10 тыс. грн. та номерами клієнтів які <strong>не користувались</strong> послугами ТОВ "Нова Пошта" раніше. Також доступна можливість завантажувати сгенерований список аналізу зворотньої доставки натиснув кнопку "Завантажити список", яка знаходиться зліва над таблицею сгенерованих аналізом ТТН.  </p>
+      <p>3. Натисніть кнопку "Список всіх ТТН" для перегляду сгенерованих ТТН.</p><br>
+      <p>Робоче місце створено за допомогою: Ruby on Rals 5.1.5, Ruby 2.5.0, Bootstrap 4, postgres database, JS, jQuery.</p>
+      
+      <br><br>
+  	  </div>
+     	
+
+    
+               
+        </div>
+      </div>
+  	</div>
+
+<footer class="container-fluid">
+  <p>Created by: Alex Malovichko</p>
+</footer>
+

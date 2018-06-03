@@ -1,0 +1,7 @@
+
+$('#mainPageDescription').hide().after('<%= j render("sorted") %>');
+$('#returnlistReady').remove();
+$('#sortbutton').on('click', function () {
+	$('#returnlistReady').remove();
+	$('#sortedList').remove();
+})

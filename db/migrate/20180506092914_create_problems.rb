@@ -1,7 +1,7 @@
 class CreateProblems < ActiveRecord::Migration[5.1]
   def up
     create_table :problems do |t|
-      t.string :name
+       t.string :name
       t.string :consignmentNote
       t.string :socialNumber
       t.string :passport
@@ -9,9 +9,7 @@ class CreateProblems < ActiveRecord::Migration[5.1]
       t.integer :telephoneNumber
       t.boolean :decision, default: false
       t.integer :claimSum
-      t.integer :insuranceSum      
-
-
+      t.integer :insuranceSum  
       t.timestamps
     end
   end

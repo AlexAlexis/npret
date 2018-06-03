@@ -1,0 +1,7 @@
+
+$('#mainPageDescription').hide().after('<%= j render("returnlist") %>');
+$('#sortedList').remove();
+$('#listbutton').on('click', function () {
+	$('#returnlistReady').remove();
+	$('#sortedList').remove();
+})

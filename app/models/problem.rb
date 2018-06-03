@@ -14,8 +14,23 @@ class Problem < ApplicationRecord
     end
   end
 
-  def self.testFunction
-      "Hello" + value
+  def social_number
+    "It's " + self.socialNumber.to_s + ", find your relations"  # instance method, 'self' - name of a model
+  end
+
+  def self.have_same_values?(problem, options = {})
+    all.each do |f|
+      if f.socialNumber == problem.socialNumber
+      return flash[:notice] = "Клієнт з ІНН #{problem.socialNumber} вже мав претензії. Перевірте відбором."
+    elsif f.passport == problem.passport
+      return  flash[:notice] = "Клієнт з паспортом: #{problem.passport} вже мав претензії. Перевірте відбором."
+
+      elsif f.telephoneNumber == problem.telephoneNumber
+      return  flash[:notice] = "Клієнт з телефоном: #{problem.telephoneNumber} вже мав претензії. Перевірте відбором."
+
+      end
+    end
+
   end
 
 

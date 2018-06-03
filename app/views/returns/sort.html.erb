@@ -1,0 +1,32 @@
+<h1>test sort</h1>
+<p><%= @returnLast %></p><br>
+
+<div class="container" id="returnlistReady">
+  <h2>Table</h2>
+  <p>The .table-responsive class creates a responsive table which will scroll horizontally on small devices (under 768px). When viewing on anything larger than 768px wide, there is no difference:</p>                                                                                      
+  <div class="table-responsive">          
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Номер ТТН:</th>
+        <th>Місто отримувач</th>
+        <th>Зворотня доставка, грн.</th>
+        <th>Номер телефону </th>
+        <th>Cтворено</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <% @resultArray.each do |f| %>
+      <tr>
+        <td><%= f.consignmentNote %></td>
+        <td><%= f.city %></td>
+        <td><%= f.cashback %></td>
+        <td><%= "0" + f.telephoneNumber.to_s %></td>
+        <td><%= f.created_at.strftime("%d.%m.%Y") %></td>     
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  </div>
+</div>

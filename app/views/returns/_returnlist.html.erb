@@ -1,0 +1,30 @@
+<div class="container" id="returnlistReady">
+  <%= link_to "Завантажити список", list_returns_path(format: "csv"), class: 'btn btn-primary' %>
+  <h4>Список всіх сгенерованих ТТН.</h4>
+                                                                                      
+  <div class="table-responsive">          
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Номер ТТН:</th>
+        <th>Місто отримувач</th>
+        <th>Зворотня доставка, грн.</th>
+        <th>Номер телефону </th>
+        <th>Cтворено</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <% @return.each do |f| %>
+      <tr>
+        <td><%= f.consignmentNote %></td>
+        <td><%= f.city %></td>
+        <td><%= f.cashback %></td>
+        <td><%= "0" + f.telephoneNumber.to_s %></td>
+        <td><%= f.created_at.strftime("%d.%m.%Y") %></td>     
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  </div>
+</div>

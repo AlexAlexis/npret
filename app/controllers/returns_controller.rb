@@ -7,10 +7,10 @@ class ReturnsController < ApplicationController
   end
 
   def generate
-     @return2 = Return.create({city: "Запоріжжя", consignmentNote: rand(20450010000..20450090000), 
-        cashback: rand(200..20000), telephoneNumber: rand(675763650..675763665)  })
+     @return2 = Return.create({city: "Запоріжжя", consignmentNote: rand(2045001000000..2045009000000), 
+        cashback: rand(200..8000), telephoneNumber: rand(675763650..675763665)  })
      @return1 = Return.last.consignmentNote
-    for i in (1..3).step(1) do
+    for i in (1..9).step(1) do
       @return = Return.create({city: "Запоріжжя", consignmentNote: @return1.to_i + i, 
         cashback: rand(200..20000), telephoneNumber: rand(675763650..675763665)  });
     end
